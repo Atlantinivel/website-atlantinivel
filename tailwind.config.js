@@ -16,7 +16,11 @@ module.exports = {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
+		  fontFamily: {
+			roboto: ["Roboto", "sans-serif"],
+		  },
   		colors: {
+			atlantiBlue: "#002554",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

@@ -1,3 +1,4 @@
+import { Header } from "@/components/own/header/header";
 import Link from "next/link";
 import React from "react";
 
@@ -13,11 +14,7 @@ export default function RootLayout({
           margin: "3rem",
         }}
       >
-        <header>
-          <Link href="/">Home</Link>
-          {" | "}
-          <Link href="/posts">Posts</Link>
-        </header>
+        <Header/>
         <main>{children}</main>
       </body>
     </html>
