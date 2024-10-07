@@ -11,7 +11,7 @@ const projects = [
   ]
 
 export function CarouselHome(props: {
-    projects: { id: number; image: string; title: string; desc: string }[];
+    projects: { image: string; title: string; desc: string }[];
 }) {
 
     const [api, setApi] = React.useState<CarouselApi>()
@@ -32,7 +32,7 @@ export function CarouselHome(props: {
       <Carousel setApi={setApi}>
         <CarouselContent className="-ml-4">
           {props.projects.map((project, index) => (
-            <CarouselItem key={project.id} className="h-full">
+            <CarouselItem key={index} className="h-full">
               <Card className="w-full">
                 <CardContent className="w-full p-0">
                   <img
