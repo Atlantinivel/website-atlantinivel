@@ -1,6 +1,8 @@
 import { Header } from "@/components/own/header/header";
 import Link from "next/link";
 import React from "react";
+import "../global.css";
+import { Footer } from "@/components/own/footer/footer";
 
 export default function RootLayout({
   children,
@@ -16,6 +18,7 @@ export default function RootLayout({
       >
         <Header/>
         <main>{children}</main>
+        <Footer/>
       </body>
     </html>
   );
