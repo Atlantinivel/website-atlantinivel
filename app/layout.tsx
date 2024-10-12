@@ -13,7 +13,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         style={{
-          margin: "3rem",
+          margin: "0",
         }}
       >
         <Header/>

@@ -1,7 +1,7 @@
 ---
 carouselData:
-  - image: aaaa
-    title: aaaaaaa
-    desc: aaaaaaaaaaaaaaaaa
+  - image: aaa
+    title: aaaaa
+    desc: aaaaaaaaa
 ---
 

@@ -3,6 +3,9 @@ import page from "./collections/page";
 import post from "./collections/post";
 import { ContactsCollection } from "./collections/contacts";
 import { MainCollection } from "./collections/main";
+import { CompanyCollection } from "./collections/company";
+import { ServicesCollection } from "./collections/services";
+import { PortfolioCollection } from "./collections/portfolio";
 import { Home } from "lucide-react";
 
 export const config = defineConfig({
@@ -29,8 +32,12 @@ export const config = defineConfig({
     outputFolder: "admin", // within the public folder
   },
   schema: {
-    collections: [page, post, ContactsCollection, MainCollection],
+    collections: [page, post, MainCollection, CompanyCollection, ServicesCollection, PortfolioCollection, ContactsCollection,],
   },
+
+  
+ 
+  
 });
 
 export default config;

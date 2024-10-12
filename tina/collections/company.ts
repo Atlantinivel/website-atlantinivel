@@ -1,9 +1,9 @@
 import { Collection } from "tinacms";
 
-export const ContactsCollection: Collection = {
-  name: "contacts",
-  label: "Contacts",
-  path: "content/contacts",
+export const CompanyCollection: Collection = {
+  name: "company",
+  label: "Company",
+  path: "content/company",
   fields: [
     {
       type: "string",
