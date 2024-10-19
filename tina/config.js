@@ -7,6 +7,8 @@ import { CompanyCollection } from "./collections/company";
 import { ServicesCollection } from "./collections/services";
 import { PortfolioCollection } from "./collections/portfolio";
 import { Home } from "lucide-react";
+import career from "./collections/career";
+
 
 export const config = defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
@@ -32,10 +34,8 @@ export const config = defineConfig({
     outputFolder: "admin", // within the public folder
   },
   schema: {
-    collections: [page, post, MainCollection, CompanyCollection, ServicesCollection, PortfolioCollection, ContactsCollection,],
+    collections: [page, post, MainCollection, CompanyCollection, ServicesCollection, PortfolioCollection, ContactsCollection,career],
   },
-
-  
  
   
 });
