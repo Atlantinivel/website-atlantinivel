@@ -3,7 +3,7 @@ import page from "./collections/page";
 import post from "./collections/post";
 import { ContactsCollection } from "./collections/contacts";
 import { MainCollection } from "./collections/main";
-import { Home } from "lucide-react";
+import career from "./collections/career";
 
 export const config = defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
@@ -29,7 +29,7 @@ export const config = defineConfig({
     outputFolder: "admin", // within the public folder
   },
   schema: {
-    collections: [page, post, ContactsCollection, MainCollection],
+    collections: [page, post, ContactsCollection, MainCollection, career],
   },
 });
 
