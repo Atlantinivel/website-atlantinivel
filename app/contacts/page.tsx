@@ -1,13 +1,14 @@
+
 import client from "../../tina/__generated__/client";
+import ClientPage from "./client-page";
 
 
 export default async function Contacts() {
-  const res = await client.queries.contacts({ relativePath: "default.md" });
-  console.log('res', res);
+    const res = await client.queries.contacts({ relativePath: "default.md" });
+    console.log(res);
 
   return (
-    <h1 className="text-3xl font-bold underline">
-      Contacts
-    </h1>
+
+    <ClientPage query={res.query} variables={res.variables}  data={res.data.contacts} />
   );
 }
