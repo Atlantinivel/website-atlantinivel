@@ -22,9 +22,42 @@ export const ServicesCollection: Collection = {
       name: "bannerDesc",
       type: "string",
       ui: {
-        component: "textarea"
+        component: "textarea",
       },
-      required:true
-    }
+      required: true,
+    },
+    {
+      type: "string",
+      name: "title",
+      label: "Title",
+      required: true,
+    },
+    {
+      type: "object",
+      name: "servicesList",
+      label: "Services List",
+      list: true,
+      fields: [
+        {
+          type: "string",
+          name: "name",
+          label: "Service Name",
+          required: true,
+        },
+        {
+          type: "string",
+          name: "description",
+          label: "Description",
+          ui: {
+            component: "textarea",
+          },
+        },
+        {
+          type: "image",
+          name: "image",
+          label: "Image",
+        },
+      ],
+    },
   ],
 };

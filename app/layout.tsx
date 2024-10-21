@@ -12,13 +12,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        style={{
-          margin: "0",
-        }}
+        className="relative"
       >
-        <Header/>
-        <main>{children}</main>
-        <Footer/>
+        <Header />
+        <main className=" pt-20 ">{children}</main>
+        <Footer />
       </body>
     </html>
   );

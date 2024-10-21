@@ -4,11 +4,11 @@ import ClientPage from "./client-page";
 
 
 export default async function Contacts() {
-    const res = await client.queries.contacts({ relativePath: "default.md" });
-    console.log(res);
+  const res = await client.queries.contacts({ relativePath: "default.md" });
+
 
   return (
 
-    <ClientPage query={res.query} variables={res.variables}  data={res.data.contacts} />
+    <ClientPage query={res.query} variables={res.variables} data={res.data.contacts} />
   );
 }

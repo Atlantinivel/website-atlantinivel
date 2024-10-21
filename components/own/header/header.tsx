@@ -1,93 +1,90 @@
+
+
 "use client"
 
 import { Button } from "@/components/ui/button";
-import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from 'next/navigation';
-import { RxHamburgerMenu } from "react-icons/rx";
+import { useState } from "react";
 
+export function Header() {
+  const navigationItems = [
+    { title: "Home", href: "/" },
+    { title: "Empresa", href: "/company" },
+    { title: "Serviços", href: "/services" },
+    { title: "Portfólio", href: "/portfolio" },
+    { title: "Notícias", href: "/posts" },
+    { title: "Carreiras", href: "/careers" },
+    { title: "Contactos", href: "/contacts" },
+  ];
 
-
-export function Header(props: {
-  
-}) {
-
+  const [isOpen, setOpen] = useState(false);
   const currentPath = usePathname()
 
   const getLinkClass = (path) => {
     return currentPath === path
-      ? "pb-3 text-atlantiBlue decoration-2 underline decoration-atlantiBlue underline-offset-4"
-      : "pb-3 text-gray-600 hover:text-atlantiBlue";
+      ? "text-atlantiBlue"
+      : "text-gray-600 hover:text-atlantiBlue";
   };
 
-
-
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 w-full">
-      <div className="h-20 sm:h-24 mx-4 md:mx-6 lg:mx-8 px-4 md:px-6 lg:px-8 py-3 flex items-center justify-between font-roboto">
-        <div className="max-h-full w-48 sm:w-56 md:w-64 flex items-center">
+    <header className="w-full z-40 fixed top-0 left-0 bg-background shadow-md">
+      <div className="container mx-auto px-4 min-h-20 flex items-center justify-between ">
+        <div className="flex items-center">
           <Image
-            className="pr-2 w-full h-auto"
+            className="h-11 w-auto"
             src="/logo/atlantinivel-logo-1.svg"
             alt="AtlantiNivel logo"
-            width={240}
-            height={0}
+            width={40}
+            height={44}
             priority
           />
         </div>
 
-        <div className="hidden md:flex space-x-8 lg:space-x-10">
-          <a href="/" className={`${getLinkClass('/')}`}><strong>Home</strong></a>
-          <a href="/company" className={`${getLinkClass('/company')}`}><strong>Empresa</strong></a>
-          <a href="/services" className={`${getLinkClass('/services')}`}><strong>Serviços</strong></a>
-          <a href="/portfolio" className={`${getLinkClass('/portfolio')}`}><strong>Portfólio</strong></a>
-          <a href="/news" className={`${getLinkClass('/news')}`}><strong>Notícias</strong></a>
-          <a href="/contacts" className={`${getLinkClass('/contacts')}`}><strong>Contactos</strong></a>
-          <a href="/careers" className={`${getLinkClass('/careers')}`}><strong>Carreiras</strong></a>
-        </div>
+        <nav className="hidden lg:flex items-center justify-center flex-1">
+          <NavigationMenu>
+            <NavigationMenuList className="flex justify-center gap-4">
+              {navigationItems.map((item) => (
+                <NavigationMenuItem key={item.title}>
+                  <Link href={item.href} legacyBehavior passHref>
+                    <NavigationMenuLink className={getLinkClass(item.href)}>
+                      {item.title}
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </nav>
 
-        <Button variant="outline" className="hidden lg:block border-2 border-atlantiBlue text-atlantiBlue hover:bg-atlantiBlue hover:text-white">
-          Pedir Orçamento
-        </Button>
-
-        <div className="md:hidden">
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button className="p-2 bg-atlantiBlue bg-opacity-100 text-white">
-                <RxHamburgerMenu className="h-6 sm:h-8 w-6 sm:w-8" />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="bg-white w-screen h-[30vh] mt-4 pb-10 pl-6 rounded-md">
-              <NavigationMenu>
-                <NavigationMenuList className="font-bold">
-                  <NavigationMenuItem className={`${getLinkClass('/')}`}>
-                    <a href="/">Home</a>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem className={`${getLinkClass('/company')}`}>
-                    <a href="/company">Empresa</a>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem className={`${getLinkClass('/services')}`}>
-                    <a href="/services">Serviços</a>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem className={`${getLinkClass('/portfolio')}`}>
-                    <a href="/portfolio">Portfólio</a>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem className={`${getLinkClass('/news')}`}>
-                    <a href="/news">Notícias</a>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem className={`${getLinkClass('/contacts')}`}>
-                    <a href="/contacts">Contactos</a>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem className={`${getLinkClass('/careers')}`}>
-                    <a href="/careers">Carreiras</a>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
-            </PopoverContent>
-          </Popover>
+        <div className="flex items-center">
+          <Button variant="outline" className="hidden sm:inline-flex">PEDIR ORÇAMENTO</Button>
+          <Button variant="ghost" className="lg:hidden ml-2" onClick={() => setOpen(!isOpen)}>
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </Button>
         </div>
       </div>
+
+      {isOpen && (
+        <div className="lg:hidden absolute top-20 left-0 right-0 bg-background shadow-lg py-4 px-4">
+          {navigationItems.map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className="block py-2 px-4 text-lg hover:bg-gray-100"
+              onClick={() => setOpen(false)}
+            >
+              {item.title}
+            </Link>
+          ))}
+          <div className="mt-4 px-4  sm:hidden">
+            <Button variant="outline" className="w-full">PEDIR ORÇAMENTO</Button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

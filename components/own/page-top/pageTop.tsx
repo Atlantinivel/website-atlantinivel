@@ -51,23 +51,23 @@ export function PageTop(props: {
                     height={0}
                     priority />
             </div>
-            <div className={`absolute inset-0 bg-atlantiBlue opacity-50 w-[80vw] z-10 `}>
+            <div className={`absolute inset-0 bg-atlantiBlue opacity-50 w-[100vw] md:w-[45vw]  z-10 `}>
             </div>
 
 
-        <div className="w-[80vw] absolute inset-0 flex items-center justify-start font-roboto text-white z-20">
-            <div className="p-8 m-2  ">
-                <h1 className="text-6xl font-bold text-atlantiBlue mb-4" data-tina-field={tinaField(data, 'bannerTitle')}>
-                {props.data.bannerTitle}
-                </h1>
-                <p className="text-white" data-tina-field={tinaField(data, 'bannerDesc')}>
-                {props.data.bannerDesc}
-                </p>
+            <div className="w-[100vw] md:w-[45vw] absolute inset-0 flex items-center justify-start font-roboto text-white z-20">
+                <div className="p-8 m-2  ">
+                    <h1 className="text-6xl font-bold text-white mb-4" data-tina-field={tinaField(data, 'bannerTitle')}>
+                        {props.data.bannerTitle}
+                    </h1>
+                    <p className="text-white" data-tina-field={tinaField(data, 'bannerDesc')}>
+                        {props.data.bannerDesc}
+                    </p>
+                </div>
             </div>
-        </div>
-            
+
         </div>
 
-        
+
     );
 }

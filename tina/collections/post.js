@@ -7,61 +7,50 @@ export default {
   path: "content/post",
   fields: [
     {
-      type: "string",
       name: "title",
-      label: "Post Title",
+      type: "string",
       required: true,
     },
     {
-      type: "datetime",
-      name: "date",
-      label: "Publication Date",
-      required: true,
-    },
-    {
+      name: "bannerImage",
       type: "image",
-      name: "featuredImage",
-      label: "Featured Image",
       required: true,
     },
     {
-      type: "object",
-      list: true,
-      name: "sections",
-      label: "Content Sections",
-      ui: {
-        itemProps: (item) => {
-          return { label: item?.sectionTitle || "Section" };
-        },
-      },
-      fields: [
-        {
-          type: "string",
-          name: "sectionTitle",
-          label: "Section Title",
-        },
-        {
-          type: "rich-text",
-          name: "content",
-          label: "Section Content",
-        },
-      ],
+      name: "secondTitle",
+      type: "string",
     },
     {
+      name: "date",
+      type: "datetime",
+      required: true,
+    },
+    {
+      name: "content",
+      type: "rich-text",
+      required: true,
+    },
+    {
+      name: "images",
       type: "object",
-      list: true,
-      name: "additionalImages",
       label: "Additional Images",
+      list: true,
       fields: [
         {
-          type: "image",
-          name: "image",
-          label: "Image",
-        },
-        {
-          type: "string",
-          name: "caption",
-          label: "Caption",
+          name: "imageList",
+          type: "object",
+          label: "Images",
+          fields: [
+            {
+              name: "image",
+              type: "image",
+              required: true,
+            },
+            {
+              name: "caption",
+              type: "string",
+            },
+          ],
         },
       ],
     },

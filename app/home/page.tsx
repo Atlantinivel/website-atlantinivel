@@ -4,9 +4,12 @@ import ClientPage from "./client-page";
 
 
 export default async function Home() {
-  const res = await client.queries.main({ relativePath: "default.md" });
+  const res = await client.queries.main({ relativePath: "homepage.md" });
 
+  const news = await client.queries.postConnection();
+
+  const projects = await client.queries.portfolioConnection();
   return (
-    <ClientPage {...res} />
+    <ClientPage {...res} news={news} projects={projects} />
   );
 }

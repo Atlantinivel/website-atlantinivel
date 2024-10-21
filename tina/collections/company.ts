@@ -22,9 +22,94 @@ export const CompanyCollection: Collection = {
       name: "bannerDesc",
       type: "string",
       ui: {
-        component: "textarea"
+        component: "textarea",
       },
-      required:true
-    }
+      required: true,
+    },
+    {
+      type: "string",
+      name: "title",
+      label: "Title",
+      required: true,
+    },
+    {
+      type: "string",
+      name: "subtitle",
+      label: "Subtitle",
+    },
+    {
+      type: "string",
+      name: "description",
+      label: "Description",
+      ui: {
+        component: "textarea",
+      },
+    },
+    {
+      type: "object",
+      name: "mission",
+      label: "Mission",
+      fields: [
+        {
+          type: "string",
+          name: "title",
+          label: "Title",
+        },
+        {
+          type: "string",
+          name: "description",
+          label: "Description",
+          ui: {
+            component: "textarea",
+          },
+        },
+      ],
+    },
+    {
+      type: "object",
+      name: "vision",
+      label: "Vision",
+      fields: [
+        {
+          type: "string",
+          name: "title",
+          label: "Title",
+        },
+        {
+          type: "string",
+          name: "description",
+          label: "Description",
+          ui: {
+            component: "textarea",
+          },
+        },
+      ],
+    },
+    {
+      type: "object",
+      name: "values",
+      label: "Values",
+      list: true,
+      fields: [
+        {
+          type: "string",
+          name: "title",
+          label: "Title",
+        },
+        {
+          type: "string",
+          name: "description",
+          label: "Description",
+          ui: {
+            component: "textarea",
+          },
+        },
+      ],
+    },
+    {
+      type: "image",
+      name: "image",
+      label: "Image",
+    },
   ],
 };
